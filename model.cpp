@@ -61,3 +61,12 @@ double CardsStorage::Score( const Settings &st ) const
   const double avg = factorSum[st.Language()] / GetCardsSize();
   return std::floor( (st.MaxWeight( GetCardsSize() ) - avg) * 100 + 0.5 ); 
 }
+
+void CardsStorage::CorrectWeight()
+{
+  for( TIterator it = m_flashCards.begin(); it != m_flashCards.end(); ++it )
+  {
+    if( it->attempts[Lang::Native] == 0 && it->factor[Lang::Native] != it->factor[Lang::Foreign] )
+      it->attempts[Lang::Native] = 1;  
+  }
+}

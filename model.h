@@ -228,6 +228,7 @@ public:
   }
   
   double Score( const Settings &st ) const; 
+  void CorrectWeight();
   
 private:
   TFlashcads m_flashCards;

@@ -168,6 +168,8 @@ void QMainScr::on_actionExportToCSV_triggered()
 
 void QMainScr::on_actionStatistics_triggered()
 {
+  data.storage.CorrectWeight();
+
   QMessageBox::information( this, QApplication::applicationName(),
     "<table>" 
     + TableDef( "Version", "12")
