@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE boost_serialization>
+<boost_serialization signature="serialization::archive" version="10">
+<ob class_id="0" tracking_level="0" version="0">
+	<settings class_id="1" tracking_level="0" version="0">
+		<language>0</language>
+		<maxWeightFactor>1</maxWeightFactor>
+		<correctAnswerFactor>0.20000000000000001</correctAnswerFactor>
+		<incorrectAnswerFactor>0.5</incorrectAnswerFactor>
+	</settings>
+	<storage class_id="2" tracking_level="0" version="0">
+		<m_flashCards class_id="3" tracking_level="0" version="0">
+			<count>6</count>
+			<item_version>1</item_version>
+			<item class_id="4" tracking_level="0" version="1">
+				<text>
+					<count>2</count>
+					<item class_id="5" tracking_level="0" version="0">
+						<value>Guys what are you up to? You know, it’s like twelve a.m. in the morning I’m trying to get some sleep.</value>
+					</item>
+					<item>
+						<value>Ребята, что происходит? Знаете, уже полночь и я пытаюсь поспать.</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>3.9491200000000002</item>
+					<item>1.81267</item>
+				</factor>
+				<attempts>
+					<count>2</count>
+					<item>5</item>
+					<item>0</item>
+				</attempts>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>The importance of our meeting shouldn&apos;t be underestimated</value>
+					</item>
+					<item>
+						<value>Важность нашей встречи невозможно переоценить</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>5.8021900000000004</item>
+					<item>1.5033399999999999</item>
+				</factor>
+				<attempts>
+					<count>2</count>
+					<item>10</item>
+					<item>0</item>
+				</attempts>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>I&apos;ll appreciate it immensely if you respond promptly and send your essays to our Forum.
+test
+test</value>
+					</item>
+					<item>
+						<value>Я буду очень признателен, если вы ответите безотлагательно и пришлёте ответы на наш форум.
+ssdsdssd</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>5.9794749999999999</item>
+					<item>2.2303500000000001</item>
+				</factor>
+				<attempts>
+					<count>2</count>
+					<item>10</item>
+					<item>0</item>
+				</attempts>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>This place serves our purpose best</value>
+					</item>
+					<item>
+						<value>Это место лучше всего отвечает нашей цели</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>4.6468800000000003</item>
+					<item>1.98305</item>
+				</factor>
+				<attempts>
+					<count>2</count>
+					<item>6</item>
+					<item>1</item>
+				</attempts>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>Some people yawn rubbing the sleep out of their eyes.</value>
+					</item>
+					<item>
+						<value>Некоторые зевают и трут глаза, чтобы проснуться.</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>4.6796499999999996</item>
+					<item>3.00081</item>
+				</factor>
+				<attempts>
+					<count>2</count>
+					<item>7</item>
+					<item>1</item>
+				</attempts>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>Тест &quot;Привет
+мир ;
+;&quot;;</value>
+					</item>
+					<item>
+						<value>test;</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>1.96</item>
+					<item>2.5</item>
+				</factor>
+				<attempts>
+					<count>2</count>
+					<item>2</item>
+					<item>0</item>
+				</attempts>
+			</item>
+		</m_flashCards>
+	</storage>
+</ob>
+</boost_serialization>
+
