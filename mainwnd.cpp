@@ -105,8 +105,7 @@ void QMainScr::on_actionTest_triggered()
   QString str;
 
   for( TMap::const_iterator it = map.begin(); it != map.end(); ++it )
-    str += QString("\"%1\"\t%2\t%3\n")
-              .arg(it->first->text[data.settings.Language()])
+    str += QString("%2\t%3\n")
               .arg(it->second)
               .arg(it->first->factor[data.settings.Language()]);
 
@@ -127,6 +126,11 @@ void QMainScr::SaveSettings()
 inline QString ToCSV( const QString &s )
 {
   return '"' + QString(s).replace("\"", "\"\"") + '"';
+}
+
+inline QString TableDef( const QString &def, const QString &val  )
+{
+  return QString("<tr><td><b>%1</b></td><td width=10></td><td>%2</td></tr>").arg(def).arg(val);
 }
 
 void QMainScr::on_actionExportToCSV_triggered()
@@ -160,4 +164,27 @@ void QMainScr::on_actionExportToCSV_triggered()
       << it->attempts[Lang::Native] << ';'
       << '\n';       
   }
+}
+
+void QMainScr::on_actionStatistics_triggered()
+{
+  QMessageBox::information( this, QApplication::applicationName(),
+    "<table>" 
+    + TableDef( "Version", "12")
+    + TableDef( "Version", "12")
+    + "</table>"
+  ); 
+}
+
+void QMainScr::on_actionAbout_triggered()
+{
+  QMessageBox::about( this, QApplication::applicationName(),
+    "<h1>iFlashcards</h1>"
+    "Dmitry Shesterkin 2013"
+    "<table>"
+    + TableDef( "Version", "1.0.0")
+    + TableDef( "Email", "<a href=\"mailto:dfb@yandex.ru?subject=iFlashcards Review/Question/Problem&body=Please share your opinion about program!\">dfb@yandex.ru</a>")
+    + TableDef( "Source", "<a href=\"http://github.com/RedaZamZam/iFlashcards\">http://github.com/RedaZamZam/iFlashcards</a>")
+    + "</table>"
+  );
 }

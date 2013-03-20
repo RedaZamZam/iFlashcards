@@ -294,8 +294,17 @@
     </property>
     <addaction name="actionExportToCSV"/>
    </widget>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>About</string>
+    </property>
+    <addaction name="actionStatistics"/>
+    <addaction name="separator"/>
+    <addaction name="actionAbout"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuPreferences"/>
+   <addaction name="menuAbout"/>
   </widget>
   <action name="actionShow_Flashcards">
    <property name="text">
@@ -324,6 +333,16 @@
   <action name="actionExportToCSV">
    <property name="text">
     <string>Export to CSV...</string>
+   </property>
+  </action>
+  <action name="actionStatistics">
+   <property name="text">
+    <string>Show Statistics</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
    </property>
   </action>
  </widget>

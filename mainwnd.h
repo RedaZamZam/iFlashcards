@@ -33,6 +33,8 @@ private slots:
   void on_actionTest_triggered();
   void on_actionInvertLng_toggled( bool checked );
   void on_actionExportToCSV_triggered();
+  void on_actionStatistics_triggered();
+  void on_actionAbout_triggered();
   void SaveSettings();
 
 private:
