@@ -89,7 +89,7 @@ class Settings
 public:  
   Settings(): 
     language(Lang::Foreign), maxWeightFactor(1), 
-    correctAnswerFactor( 0.3 ), incorrectAnswerFactor( 0.5 )  
+    correctAnswerFactor( 0.5 ), incorrectAnswerFactor( 0.5 )  
   {}
   
   Lang::T Language() const { return language; }
