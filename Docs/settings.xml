@@ -1,0 +1,1295 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE boost_serialization>
+<boost_serialization signature="serialization::archive" version="10">
+<ob class_id="0" tracking_level="0" version="0">
+	<settings class_id="1" tracking_level="0" version="0">
+		<language>1</language>
+		<maxWeightFactor>1</maxWeightFactor>
+		<correctAnswerFactor>0.29999999999999999</correctAnswerFactor>
+		<incorrectAnswerFactor>0.5</incorrectAnswerFactor>
+	</settings>
+	<storage class_id="2" tracking_level="0" version="0">
+		<m_flashCards class_id="3" tracking_level="0" version="0">
+			<count>79</count>
+			<item_version>0</item_version>
+			<item class_id="4" tracking_level="0" version="0">
+				<text>
+					<count>2</count>
+					<item class_id="5" tracking_level="0" version="0">
+						<value>The importance of our meeting shouldn&apos;t be underestimated</value>
+					</item>
+					<item>
+						<value>Важность нашей встречи невозможно переоценить</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>I&apos;ll appreciate it immensely if you respond promptly and send your essays to our Forum.</value>
+					</item>
+					<item>
+						<value>Я буду очень признателен, если вы ответите безотлагательно и пришлёте ответы на наш форум.</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>This place serves our purpose best</value>
+					</item>
+					<item>
+						<value>Это место лучше всего отвечает нашей цели</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>Some people yawn rubbing the sleep out of their eyes.</value>
+					</item>
+					<item>
+						<value>Некоторые зевают и трут глаза, чтобы проснуться.</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>We&apos;d like to hear what you, Mikhail, think of the premises</value>
+					</item>
+					<item>
+						<value>Мы хотели бы услышать твое, Михаил, мнение о помещении.
+
+(a house or building, together with its land and outbuildings, occupied by a business or considered in an official context)</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>Well, briefly, it&apos;s a state-of-the-art exhibi-tion center in Moscow with cutting-edge mounting and dismantling facilities, catering and what not.</value>
+					</item>
+					<item>
+						<value>Ну, если коротко, это современнейший выставоч-ный центр в Москве с новейшим монтажным и демонтажным оборудованием, а также ресторан-ным обслуживанием и прочее.</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>And I heard catering there leaves much to be desired.</value>
+					</item>
+					<item>
+						<value>А я слышала, что качество ресторанного обслу-живания там оставляет желать лучшего.</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>Seeing is believing. Let&apos;s dash off now.</value>
+					</item>
+					<item>
+						<value>Лучше один раз увидеть, чем сто раз услышать. Ну, нам пора.</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>Comes in trying to get geared up for work after a sleepless night at the airport.</value>
+					</item>
+					<item>
+						<value>Входит, пытаясь настроиться на работу после бессонной ночи в аэропорту</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>I&apos;m sorry I&apos;m late</value>
+					</item>
+					<item>
+						<value>Простите, что опоздал</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>He takes the printed message from William and starts reading out</value>
+					</item>
+					<item>
+						<value>Он берет распечатанное сообщение у Вильяма и начинает читать вслух</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>It pleases me to say that I&apos;m more than content with your report</value>
+					</item>
+					<item>
+						<value>Мне приятно сообщить, что я чрезвычайно доволен вашим отчетом</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>It’s most encouraging</value>
+					</item>
+					<item>
+						<value>Он в крайней степени обнадеживает</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>Unfortunately, an incredible chain of circumstances still keeps me away from you</value>
+					</item>
+					<item>
+						<value>К сожалению, невероятное стечение обстоятельств все еще не позволяет мне присоединиться к вам</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>I have some business to attend to here</value>
+					</item>
+					<item>
+						<value>У меня остаются здесь кое-какие незавершенные дела</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>I will go to any lengths to catch up with you at the exhibition</value>
+					</item>
+					<item>
+						<value>Но я приложу все усилия, чтобы присоединиться к вам на выставке</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>(Shrugging.) I wonder what could have cropped up this time.</value>
+					</item>
+					<item>
+						<value>(Пожимая плечами.) Интересно, что могло случиться на этот раз?</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>I have no idea. But I hope we&apos;ll know in due time.</value>
+					</item>
+					<item>
+						<value>Понятия не имею. Но надеюсь, мы узнаем в свое время.</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>(Curiously.) By the way, Sophia, they say you know Steven in person.</value>
+					</item>
+					<item>
+						<value>(С любопытством.) Кстати, София, говорят, ты знакома со Стивеном лично.</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>He used to lecture at the university I went to. And although not compulsory, it was his subject that students aspired to get enrolled into. </value>
+					</item>
+					<item>
+						<value>Он читал лекции в моем университете. И хотя его предмет был необязательным, именно на него студенты стремились записаться. </value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>(Teasing her.) He must have had an irresistible fascination. </value>
+					</item>
+					<item>
+						<value>(Поддразнивая ее.) Должно быть, он обладал не-отразимым обаянием. </value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>I suspect he broke a lot of hearts. Luckily mine had been occupied by then.</value>
+					</item>
+					<item>
+						<value>Подозреваю, он разбил много сердец. К счастью, мое к тому времени было уже занято.</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>I don&apos;t think he is the marrying kind: too ambitious and career-oriented, too inde-pendent self-reliant.</value>
+					</item>
+					<item>
+						<value>Думаю, он не из тех, кто женится: слишком честолюбив и увлечен своей карьерой, слишком независим и самодостаточен</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>Without self-confidence we are as babes in the cradle</value>
+					</item>
+					<item>
+						<value>Без уверенности в себе мы, как младенцы в колыбели</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>- As far as I know, he&apos;s still single
+- It remains to be seen</value>
+					</item>
+					<item>
+						<value>- Насколько я знаю, он все еще не женат
+- Это еще большой вопрос</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>The exhibition requires thorough preparation</value>
+					</item>
+					<item>
+						<value>Выставка требует тщательной подготовки</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>The conversation subsides, and she carries on reading</value>
+					</item>
+					<item>
+						<value>Разговор стихает, и она  продолжает читать</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>I know you must be head over heels in your work</value>
+					</item>
+					<item>
+						<value>Я знаю, что у вас сейчас по горло работы</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>I&apos;ll be as brief as possible</value>
+					</item>
+					<item>
+						<value>Буду как можно более краток</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>Firstly, we ought to bear in mind that the exhibition seeks to increase awareness of the public in the newly emerging global education</value>
+					</item>
+					<item>
+						<value>Во-первых, мы должны иметь в виду, что выставка стремится повысить осведомленность людей в появляющемся глобальном образовании.</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>Thereupon the educators need to be given the floor to speak on national qualifications compatiblce with the European three-cycle structure (bachelor-master-doctorate), vocational three-year degrees and life-long learning</value>
+					</item>
+					<item>
+						<value>В связи с этим представителям образования необходимо дать возможность высказаться по проблеме совместимости национальных квалификаций с европейской трехцикличной структурой (бакалавр – мастер – доктор), профессионального  трехгодичного обучения и непрерывного образования</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>In my view it can be best done at a round table discussion</value>
+					</item>
+					<item>
+						<value>По-моему, это наилучшим образом можно сделать за круглым столом</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>It certainly requires thorough preparation: participants to be invited, problems to be raised, and technical arrangements to be made</value>
+					</item>
+					<item>
+						<value>Он, конечно, требует тщательной подготовки: определения списка участников, проблем, которые следует затронуть, и технических распоряжений</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>And I’m convinced there’s no one who can act as a mediator better than Vanessa, isn’t that so</value>
+					</item>
+					<item>
+						<value>И я абсолютно убежден, нельзя найти лучшего медиатора, чем Ванесса, вы согласны</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>Lifting her eyes</value>
+					</item>
+					<item>
+						<value>Поднимая свои глаза</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>Before we switch to another subject, why don&apos;t we brainstorm on the issues to be raised at the round table?</value>
+					</item>
+					<item>
+						<value>Прежде чем мы перейдем к другой теме, почему бы нам не набросать проблемы, которые необходимо поднять на круглом столе?</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>(Immediately responding to the call.) Well, my observation of the new standards is that quite a number of undergraduates fail to achieve the minimum credits and might be even expelled from universities.</value>
+					</item>
+					<item>
+						<value>(Тут же реагируя на призыв.) По моим наблюде-ниям, при новых требованиях многие студенты не набирают необходимых баллов и даже могут быть отчислены из университетов.</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>This means, admission and study per-formance should be improved.</value>
+					</item>
+					<item>
+						<value>Значит, процедура приема и процесс обучения должны быть улучшены.</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>While ample extracurricular activities ought to be cut down.</value>
+					</item>
+					<item>
+						<value>При этом следовало бы сократить избыточные внеаудиторные мероприятия.</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>You can&apos;t but know that the bulk of students have to combine study with work to pay tuition fees and cover accommodation expenses. </value>
+					</item>
+					<item>
+						<value>Вы не можете не знать, что большинство студентов вынуждены совмещать учебу с работой, чтобы оплатить обучение и покрыть расходы на проживание.</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>Unless they obtain a scholarship or win a grant.</value>
+					</item>
+					<item>
+						<value>Если только они не получают стипендию или не выигрывают грант.</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>In my view, the changes will be stumbling until a new generation of teachers is trained.</value>
+					</item>
+					<item>
+						<value>На мой взгляд, изменения будут буксовать до тех пор, пока не будет подготовлено новое поколение учителей.</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>How can talented people be attracted to teaching without its prestige and salaries being increased?</value>
+					</item>
+					<item>
+						<value>Как можно привлечь талантливых людей к про-фессии учителя без повышения ее престижа и зарплаты?</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>Let&apos;s not fall into a discussion now. But you have hit a sore point.</value>
+					</item>
+					<item>
+						<value>Давайте не будем уходить в дискуссию. Но ты затронул больную тему.</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>Looks the group over in search of other suggestions.</value>
+					</item>
+					<item>
+						<value>Оглядывает группу в поисках других предложений</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>I don&apos;t think we can neglect such an aspect as the role of multimedia in education. </value>
+					</item>
+					<item>
+						<value>Думаю, мы не можем не учитывать такой аспект, как роль мультимедийных средств в образова-нии. </value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>Monique chews on this for a second</value>
+					</item>
+					<item>
+						<value>Моник секунду переваривает сказанное</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>Please, don&apos;t get me wrong. I&apos;m not against multimedia. However, they seem to be gradually replacing face-to-face communication</value>
+					</item>
+					<item>
+						<value>Пожалуйста, поймите меня правильно. Я не против мультимедийных средств. Однако, они, как мне кажется, постепенно вытесняют личное общение</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>What worries me is that reading is being gradually substituted by the computer and TV</value>
+					</item>
+					<item>
+						<value>Меня беспокоит то, что чтение постепенно под-меняется компьютером и телевидением</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>I absolutely disagree, but we&apos;d rather not dwell on it now. </value>
+					</item>
+					<item>
+						<value>Я совершенно не согласен, но нам лучше не останавливаться на этом сейчас. </value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>I don&apos;t understand how you can deny the obvious</value>
+					</item>
+					<item>
+						<value>Не понимаю, как ты можешь отрицать очевид-ное</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>Finally, we can&apos;t but touch upon the prob-lems of secondary school, such as: the choice of subjects, exams and resits, charging for education, sexual and racial harassment, disruptive behaviour and punishment, bullying…</value>
+					</item>
+					<item>
+						<value>И, наконец, мы не можем не затронуть вопросы средней школы, такие как: выбор предметов, экзамены и переэкзаменовка, оплата обучения, сек-суальное и расовое притеснение, нарушение дис-циплины и наказание, травля (дедовщина)...</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>Let&apos;s keep the rest for the round table if you don&apos;t mind</value>
+					</item>
+					<item>
+						<value>Давайте оставим остальное для круглого стола, если вы не возражаете</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>Excellent! Sophia, have you taken down all the points?</value>
+					</item>
+					<item>
+						<value>Отлично. София, ты все записала?</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>(Nodding) Sure.</value>
+					</item>
+					<item>
+						<value>(Кивая) Конечно.</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>Secondly, I’d like to lay a particular stress on the international education</value>
+					</item>
+					<item>
+						<value>Во-вторых, я бы хотел обратить особое внимание на международное образование</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>Its importance can’t be overestimated</value>
+					</item>
+					<item>
+						<value>Его значимость трудно переоценить</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>A big variety of international educational institutions are drawn in to have their stands</value>
+					</item>
+					<item>
+						<value>Для участия привлечено большое количество международных образовательных учреждений с их стендами</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>For this we can attract the associates. It&apos;ll be a valuable experience for them. </value>
+					</item>
+					<item>
+						<value>Для этого мы можем привлечь участников. Это будет для них полезным опытом.</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>But maybe we&apos;ll finish up the letter and keep our remarks till afterwards? </value>
+					</item>
+					<item>
+						<value>Но может, мы закончим с письмом и оставим наши замечания на потом?</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>Finally, the exhibition aims to help university graduates to find self-fulfilling, well-paid jobs and advise those people who want to move jobs or even launch themselves into a career change</value>
+					</item>
+					<item>
+						<value>И последнее. Задача выставки – помочь выпускникам университетов найти хорошо оплачиваемую работу с возможностью самореализации, а также проконсультировать тех, кто хочет сменить работу или даже полностью сменить сферу деятельности.</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>Karen reads on</value>
+					</item>
+					<item>
+						<value>Карен читает дальше</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>In this connection the donor suggests we hold a workshop on the problem with participation of professional career counsellors and recruitment agencies</value>
+					</item>
+					<item>
+						<value>В этой связи донор предлагает нам провести семинар по этим проблемам с участием профессиональных консультантов и агентств по трудоустройству</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>Why don&apos;t you run the workshop, with our help, of course?</value>
+					</item>
+					<item>
+						<value>Почему бы тебе не провести этот семинар, с нашей помощью, конечно?</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>Gladly! </value>
+					</item>
+					<item>
+						<value>С радостью! </value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>If I&apos;m not mistaken, your ancestor was Maria Montessori, the creator of the Montessori Method, wasn&apos;t she?
+Exactly. She was my great-grandmother on my father&apos;s side. </value>
+					</item>
+					<item>
+						<value>Если я не ошибаюсь, твоим предком была Мария Монтессори, создатель метода Монтессори, ведь так?
+Точно. Она была моей прабабушкой по отцов-ской линии.</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>Mikhail has itchy feet. He stands up and addresses everybody.</value>
+					</item>
+					<item>
+						<value>Михаилу не сидится на месте. Он встает и обраща-ется ко всем.</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>He went hot and cold all over</value>
+					</item>
+					<item>
+						<value>Его бросило в жар</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>Oh, dear! How could I have forgotten!</value>
+					</item>
+					<item>
+						<value>О, господи! Как я мог забыть!</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>Let&apos;s go straight away</value>
+					</item>
+					<item>
+						<value>Поехали немедленно</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>Ladies, you won&apos;t get offended if we leave you now?</value>
+					</item>
+					<item>
+						<value>Дамы, вы не обидитесь, если мы вас сейчас покинем?  </value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>Go but remember: more haste less speed</value>
+					</item>
+					<item>
+						<value>Поезжайте, но помните: тише едешь, дальше будешь</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>Arrive on time
+Arrive in time</value>
+					</item>
+					<item>
+						<value>Приехать вовремя
+Приехать вовремя, но совсем впритык</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>Tell me how we&apos;re doing for time. Traffic is terrible at midday. I can&apos;t get used to Moscow jams.
+And I am used to them. There is time. Don&apos;t worry.</value>
+					</item>
+					<item>
+						<value>Скажи, как у нас со временем? В полдень такое ужасное движение. Не могу привыкнуть к мос- ковским пробкам.
+А я привык к ним. Время есть. Не волнуйтесь.</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>What are those warning lights? I don&apos;t understand why they&apos;re flashing.с</value>
+					</item>
+					<item>
+						<value>А что это за предупреждающие огни? Не понимаю, почему они мигают.</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>There must be a holdup at the intersection. (He begins to pick up speed. But he&apos;s still only in second gear.)</value>
+					</item>
+					<item>
+						<value>На перекрестке, должно быть, какая-то задержка. (Начинает прибавлять скорость. Но все еще на второй передаче.)</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>It&apos;s not really so bad. Relax. We&apos;re less than a kilometer from our destination.</value>
+					</item>
+					<item>
+						<value>На самом деле все не так плохо. Расслабьтесь. Мы менее чем в километре от места.</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>Mikhail pulls the car to a stop.</value>
+					</item>
+					<item>
+						<value>Михаил останавливает машину.</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+			<item>
+				<text>
+					<count>2</count>
+					<item>
+						<value>(Incredulously.) You mean we&apos;ll be shown on TV?
+Calm down, dear. We&apos;re all born speak-ers. The press conference is sure to be a success. Hurry up!</value>
+					</item>
+					<item>
+						<value>(Не веря своим ушам.) Ты хочешь сказать, нас покажут по телевизору?
+Успокойся, дорогая. Мы все – прирожденные ораторы. Пресс-конференция наверняка пройдет успешно. Идемте быстрее!</value>
+					</item>
+				</text>
+				<factor>
+					<count>2</count>
+					<item>10</item>
+					<item>10</item>
+				</factor>
+			</item>
+		</m_flashCards>
+	</storage>
+</ob>
+</boost_serialization>
+
