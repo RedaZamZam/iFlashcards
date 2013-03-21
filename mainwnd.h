@@ -43,7 +43,7 @@ private:
 
 private:
   Ui::MainWindow ui;
-  FileData data;
+  FileData m_data;
   CardsStorage::TSearchIterator m_iterCard;
 };
 

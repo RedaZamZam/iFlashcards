@@ -14,9 +14,9 @@ QMainScr::QMainScr(QWidget *parent, Qt::WFlags flags)
   QObject::connect( QApplication::instance() , SIGNAL(aboutToQuit()), this, SLOT(SaveSettings()) );
   
   if( QFile::exists(szStorageFileName) )
-    FromXml( szStorageFileName, data );
+    FromXml( szStorageFileName, m_data );
     
-  ui.actionInvertLng->setChecked( data.settings.Language() == Lang::Native );
+  ui.actionInvertLng->setChecked( m_data.settings.Language() == Lang::Native );
   
   Clear();
 }
@@ -29,10 +29,10 @@ void QMainScr::Clear()
   ui.plainTextNative->setPlainText("");
   ui.btnYes->setEnabled( false );
   ui.btnNo->setEnabled( false );
-  ui.btnNext->setEnabled( !data.storage.IsCardsEmpty() );
-  m_iterCard = data.storage.CardsEnd();
+  ui.btnNext->setEnabled( !m_data.storage.IsCardsEmpty() );
+  m_iterCard = m_data.storage.CardsEnd();
   
-  ui.lblAvgScore->setText( QString("Score: <b>%1</b>").arg( data.storage.Score(data.settings) ) );
+  ui.lblAvgScore->setText( QString("Score: <b>%1</b>").arg( m_data.storage.Score(m_data.settings) ) );
 }
 
 QMainScr::~QMainScr()
@@ -44,7 +44,7 @@ void QMainScr::on_actionShow_Flashcards_triggered()
 {
   const CardsStorage::TSearchIterator itCurrent( m_iterCard );
   Clear();
-  EditCardsDialog cards( this, data.storage, data.settings, itCurrent ); 
+  EditCardsDialog cards( this, m_data.storage, m_data.settings, itCurrent ); 
   cards.exec();
   SaveSettings();
   Clear();
@@ -52,27 +52,27 @@ void QMainScr::on_actionShow_Flashcards_triggered()
 
 void QMainScr::on_btnNext_clicked()
 {
-  if( m_iterCard == data.storage.CardsEnd() )
+  if( m_iterCard == m_data.storage.CardsEnd() )
   {  
-    m_iterCard = data.storage.GetRandomElem( data.settings.Language() );    
-    ui.plainTextForeign->setPlainText( m_iterCard->text[data.settings.Language()]);  
+    m_iterCard = m_data.storage.GetRandomElem( m_data.settings.Language() );    
+    ui.plainTextForeign->setPlainText( m_iterCard->text[m_data.settings.Language()]);  
   }
   else
   {
     ui.btnYes->setEnabled( true );
     ui.btnNo->setEnabled( true );
     ui.btnNext->setEnabled( false );
-    ui.plainTextNative->setPlainText( m_iterCard->text[!data.settings.Language()]);
+    ui.plainTextNative->setPlainText( m_iterCard->text[!m_data.settings.Language()]);
     ui.lblScoreChange->setText( QString() );
   }  
 }
 
 void QMainScr::ReceiveAnswer( Answer::T ans )
 {
-  const double prevFactor = m_iterCard->factor[ data.settings.Language() ];  
-  data.storage.ChangeFactor( m_iterCard, data.settings, ans );
-  const double newFactor = m_iterCard->factor[ data.settings.Language() ];
-  const double newAttempt = m_iterCard->attempts[ data.settings.Language() ]; 
+  const double prevFactor = m_iterCard->factor[ m_data.settings.Language() ];  
+  m_data.storage.ChangeFactor( m_iterCard, m_data.settings, ans );
+  const double newFactor = m_iterCard->factor[ m_data.settings.Language() ];
+  const double newAttempt = m_iterCard->attempts[ m_data.settings.Language() ]; 
   Clear();
   
   ui.lblScoreChange->setText( QString("Last phrase weight has been changed: %1 -> %2. Attempt: %3").arg(prevFactor).arg(newFactor).arg(newAttempt) );
@@ -98,7 +98,7 @@ void QMainScr::on_actionTest_triggered()
 
   for( int i = 0; i < 10000000; ++i )
   {
-    CardsStorage::TSearchIterator it = data.storage.GetRandomElem( data.settings.Language() );
+    CardsStorage::TSearchIterator it = m_data.storage.GetRandomElem( m_data.settings.Language() );
     ++map[it];
   }
 
@@ -107,20 +107,20 @@ void QMainScr::on_actionTest_triggered()
   for( TMap::const_iterator it = map.begin(); it != map.end(); ++it )
     str += QString("%2\t%3\n")
               .arg(it->second)
-              .arg(it->first->factor[data.settings.Language()]);
+              .arg(it->first->factor[m_data.settings.Language()]);
 
   ui.plainTextForeign->setPlainText(str);  
 }
 
 void QMainScr::on_actionInvertLng_toggled( bool checked )
 {
-  data.settings.Language( checked ? Lang::Native : Lang::Foreign );
+  m_data.settings.Language( checked ? Lang::Native : Lang::Foreign );
   Clear();
 }
 
 void QMainScr::SaveSettings()
 {
-  ToXml( szStorageFileName, data );
+  ToXml( szStorageFileName, m_data );
 }
 
 inline QString ToCSV( const QString &s )
@@ -163,7 +163,7 @@ void QMainScr::on_actionExportToCSV_triggered()
   
   out << "Foreign;Native;F->N Weight;N->F Weight;F->N Attempts;N->F Attempts\n";
   
-  for( CardsStorage::TConstSearchIterator it = data.storage.CardsBegin(); it != data.storage.CardsEnd(); ++it )
+  for( CardsStorage::TConstSearchIterator it = m_data.storage.CardsBegin(); it != m_data.storage.CardsEnd(); ++it )
   {
     out 
       << ToCSV( it->text[Lang::Foreign] ) << ';'
@@ -180,17 +180,17 @@ void QMainScr::on_actionStatistics_triggered()
 {
   typedef CardsStorage::TFlashcads::size_type TSize;   
   
-  const Lang::T lang = data.settings.Language();
-  const TSize cardsCount = data.storage.GetCardsSize();
-  const double initalWeight = data.settings.InitialWeight( cardsCount );
-  const double weightAfterSuccessAnswer = data.storage.CalcNewFactor( initalWeight, data.settings, Answer::Correct ); 
+  const Lang::T lang = m_data.settings.Language();
+  const TSize cardsCount = m_data.storage.GetCardsSize();
+  const double initalWeight = m_data.settings.InitialWeight( cardsCount );
+  const double weightAfterSuccessAnswer = m_data.storage.CalcNewFactor( initalWeight, m_data.settings, Answer::Correct ); 
   TSize newCardsCount = 0;
   TSize unknownCardsCount = 0;
   TSize totalAttempts = 0;
   TSize attemptsToInitial = 0;  
   TSize attemptsToKnown = 0;
     
-  for( CardsStorage::TConstSearchIterator it = data.storage.CardsBegin(); it != data.storage.CardsEnd(); ++it )
+  for( CardsStorage::TConstSearchIterator it = m_data.storage.CardsBegin(); it != m_data.storage.CardsEnd(); ++it )
   {
     if( it->attempts[lang] == 0 )
       ++newCardsCount;
@@ -199,8 +199,8 @@ void QMainScr::on_actionStatistics_triggered()
       ++unknownCardsCount;  
       
     totalAttempts += it->attempts[lang];   
-    attemptsToInitial += CardsStorage::AttempsCountToReachWeight( it->factor[lang], initalWeight, data.settings.CorrectAnswerFactor() );
-    attemptsToKnown += CardsStorage::AttempsCountToReachWeight( it->factor[lang],  weightAfterSuccessAnswer, data.settings.CorrectAnswerFactor() );
+    attemptsToInitial += CardsStorage::AttempsCountToReachWeight( it->factor[lang], initalWeight, m_data.settings.CorrectAnswerFactor() );
+    attemptsToKnown += CardsStorage::AttempsCountToReachWeight( it->factor[lang],  weightAfterSuccessAnswer, m_data.settings.CorrectAnswerFactor() );
   }
 
   QMessageBox::information( this, "Statistics",
