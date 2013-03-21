@@ -20,6 +20,14 @@ private:
   };
          
 public:
+  enum DataState
+  {
+    NotChanged = QDialog::Rejected,
+    OnlyEdit = QDialog::Accepted,
+    CompleatlyChanged = 10
+  };         
+         
+public:
   EditCardsDialog( QWidget *parent, CardsStorage &storage, const Settings &st, CardsStorage::TConstSearchIterator itCurrent );
   ~EditCardsDialog();
 
@@ -44,6 +52,7 @@ private:
   Ui::QtTestClass ui;
   CardsStorage &storage;
   const Settings &m_st;
+  bool m_cardsCountChanged;
 };
 
 #endif // QTTEST_H

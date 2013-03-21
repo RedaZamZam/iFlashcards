@@ -159,6 +159,7 @@ public:
   typedef std::vector<Flashcard> TFlashcads;
   typedef TFlashcads::iterator TIterator;  
   typedef TFlashcads::const_iterator TConstIterator;
+  typedef TFlashcads::size_type TSize;
   
   struct AddConst
   {
@@ -216,13 +217,13 @@ public:
   TSearchIterator CardsEnd() { return TSearchIterator(m_flashCards.end()); }
   
   bool IsCardsEmpty() const { return m_flashCards.empty(); }
-  TFlashcads::size_type GetCardsSize() const { return m_flashCards.size(); }
+  TSize GetCardsSize() const { return m_flashCards.size(); }
   
   TSearchIterator GetRandomElem( Lang::T lng );
   
   void ChangeFactor( TIterator it, const Settings &st, Answer::T answer ); 
   double CalcNewFactor( double oldFactor, const Settings &st, Answer::T answer ) const;
-  static TFlashcads::size_type CardsStorage::AttempsCountToReachWeight( double curWeight, double destWeight, double factor ); 
+  static TSize CardsStorage::AttempsCountToReachWeight( double curWeight, double destWeight, double factor ); 
   
   void ChangeFactor( TSearchIterator it, const Settings &st, Answer::T answer )
   {

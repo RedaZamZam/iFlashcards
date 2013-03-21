@@ -40,6 +40,7 @@ private slots:
 private:
   void Clear();
   void ReceiveAnswer( Answer::T ans );
+  void ShowFullCard();
 
 private:
   Ui::MainWindow ui;

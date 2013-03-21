@@ -44,27 +44,48 @@ void QMainScr::on_actionShow_Flashcards_triggered()
 {
   const CardsStorage::TSearchIterator itCurrent( m_iterCard );
   Clear();
-  EditCardsDialog cards( this, m_data.storage, m_data.settings, itCurrent ); 
-  cards.exec();
+  const CardsStorage::TSize cardNum = itCurrent - m_data.storage.CardsBegin();
+  EditCardsDialog cards( this, m_data.storage, m_data.settings, itCurrent );
+   
+  switch( cards.exec() )
+  {
+    case EditCardsDialog::NotChanged:
+    case EditCardsDialog::OnlyEdit:
+      m_iterCard = m_data.storage.CardsBegin() + cardNum;
+      
+      if( m_iterCard != m_data.storage.CardsEnd() )
+        ShowFullCard(); 
+    break;
+    
+    case EditCardsDialog::CompleatlyChanged:
+      Clear(); 
+    break;
+  }
+  
   SaveSettings();
-  Clear();
+}
+
+void QMainScr::ShowFullCard()
+{
+  ui.btnYes->setEnabled( true );
+  ui.btnNo->setEnabled( true );
+  ui.btnNext->setEnabled( false );
+  ui.plainTextNative->setPlainText( m_iterCard->text[!m_data.settings.Language()]);
+  ui.lblScoreChange->setText( QString() );
+  ui.plainTextForeign->setPlainText( m_iterCard->text[m_data.settings.Language()]);
 }
 
 void QMainScr::on_btnNext_clicked()
 {
   if( m_iterCard == m_data.storage.CardsEnd() )
   {  
-    m_iterCard = m_data.storage.GetRandomElem( m_data.settings.Language() );    
-    ui.plainTextForeign->setPlainText( m_iterCard->text[m_data.settings.Language()]);  
+    m_iterCard = m_data.storage.GetRandomElem( m_data.settings.Language() ); 
+    ui.plainTextForeign->setPlainText( m_iterCard->text[m_data.settings.Language()]);         
   }
   else
   {
-    ui.btnYes->setEnabled( true );
-    ui.btnNo->setEnabled( true );
-    ui.btnNext->setEnabled( false );
-    ui.plainTextNative->setPlainText( m_iterCard->text[!m_data.settings.Language()]);
-    ui.lblScoreChange->setText( QString() );
-  }  
+    ShowFullCard();
+  }   
 }
 
 void QMainScr::ReceiveAnswer( Answer::T ans )
@@ -133,7 +154,7 @@ inline QString TableDef( const QString &def, const QString &val )
   return QString("<tr><td align=right><b>%1</b></td><td width=5></td><td>%2</td></tr>").arg(def).arg(val);
 }
 
-inline QString TableDef( const QString &def, CardsStorage::TFlashcads::size_type val )
+inline QString TableDef( const QString &def, CardsStorage::TSize val )
 {
   return TableDef( def, QString::number(val) );
 }
@@ -178,7 +199,7 @@ void QMainScr::on_actionExportToCSV_triggered()
 
 void QMainScr::on_actionStatistics_triggered()
 {
-  typedef CardsStorage::TFlashcads::size_type TSize;   
+  typedef CardsStorage::TSize TSize;   
   
   const Lang::T lang = m_data.settings.Language();
   const TSize cardsCount = m_data.storage.GetCardsSize();
@@ -223,7 +244,7 @@ void QMainScr::on_actionAbout_triggered()
     "<h1>iFlashcards</h1>"
     "Dmitry Shesterkin 2013<br>"
     "<table>"
-    + TableDef( "Version", "1.1.0")
+    + TableDef( "Version", "1.2.0")
     + TableDef( "Email", "<a href=\"mailto:dfb@yandex.ru?subject=iFlashcards Review/Question/Problem&body=Please share your opinion about program!\">dfb@yandex.ru</a>")
     + TableDef( "Source", "<a href=\"http://github.com/RedaZamZam/iFlashcards\">http://github.com/RedaZamZam/iFlashcards</a>")
     + "</table>"

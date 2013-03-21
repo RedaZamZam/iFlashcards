@@ -50,7 +50,7 @@ void CardsStorage::ChangeFactor( TIterator it, const Settings &st, Answer::T ans
   it->attempts[st.Language()] += 1;
 }
 
-CardsStorage::TFlashcads::size_type CardsStorage::AttempsCountToReachWeight( double curWeight, double destWeight, double factor )
+CardsStorage::TSize CardsStorage::AttempsCountToReachWeight( double curWeight, double destWeight, double factor )
 {
   // Maple:
   // F:=oldFactor - CorrectFactor * (oldFactor);
@@ -62,7 +62,7 @@ CardsStorage::TFlashcads::size_type CardsStorage::AttempsCountToReachWeight( dou
   // evalf(subs( {dest=40, cur=300, CorrectFactor=0.75}, %));
   const double times = std::log( destWeight / curWeight ) / std::log(1 - factor);
   
-  return times > 0 ? (TFlashcads::size_type) std::ceil(times) : 0;
+  return times > 0 ? (TSize) std::ceil(times) : 0;
 }                                                          
 
 CardsStorage::CardsStorage():

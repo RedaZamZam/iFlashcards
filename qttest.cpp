@@ -3,7 +3,7 @@
 #include "model.h"
 
 EditCardsDialog::EditCardsDialog( QWidget *parent, CardsStorage &storage, const Settings &st, CardsStorage::TConstSearchIterator itCurrent  )
-    : QDialog(parent), storage(storage), m_st(st) 
+    : QDialog(parent), storage(storage), m_st(st), m_cardsCountChanged(false) 
 {
   setWindowFlags( (windowFlags() | Qt::WindowMinMaxButtonsHint) & ~Qt::WindowContextHelpButtonHint );
 
@@ -50,7 +50,7 @@ void EditCardsDialog::on_btnSave_clicked()
     storage.Add(fc);
   }
   
-  accept();    
+  done( m_cardsCountChanged ? CompleatlyChanged : OnlyEdit );    
 }
 
 void EditCardsDialog::on_actionAdjustHeights_triggered()
@@ -164,6 +164,7 @@ void EditCardsDialog::on_actionAdd_triggered()
   
   ui.tableFlashcard->selectRow( newRow );
   ui.plainTextForeign->setFocus();
+  m_cardsCountChanged = true;
 }
 
 void EditCardsDialog::on_tableFlashcard_currentCellChanged( int currentRow, int currentColumn, int previousRow, int previousColumn )
@@ -212,8 +213,11 @@ void EditCardsDialog::on_actionDelete_triggered()
 {   
   const int currentRow = ui.tableFlashcard->currentRow();
 
-  if( currentRow >= 0 ) 
+  if( currentRow >= 0 )
+  { 
     ui.tableFlashcard->removeRow( ui.tableFlashcard->currentRow() );
+    m_cardsCountChanged = true;
+  }
 }
 
 
