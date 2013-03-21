@@ -128,9 +128,19 @@ inline QString ToCSV( const QString &s )
   return '"' + QString(s).replace("\"", "\"\"") + '"';
 }
 
-inline QString TableDef( const QString &def, const QString &val  )
+inline QString TableDef( const QString &def, const QString &val )
 {
-  return QString("<tr><td><b>%1</b></td><td width=10></td><td>%2</td></tr>").arg(def).arg(val);
+  return QString("<tr><td align=right><b>%1</b></td><td width=5></td><td>%2</td></tr>").arg(def).arg(val);
+}
+
+inline QString TableDef( const QString &def, CardsStorage::TFlashcads::size_type val )
+{
+  return TableDef( def, QString::number(val) );
+}
+
+inline QString TableDef( const QString &def, double val )
+{
+  return TableDef( def, QString::number(val) );
 }
 
 void QMainScr::on_actionExportToCSV_triggered()
@@ -168,23 +178,52 @@ void QMainScr::on_actionExportToCSV_triggered()
 
 void QMainScr::on_actionStatistics_triggered()
 {
-  data.storage.CorrectWeight();
+  typedef CardsStorage::TFlashcads::size_type TSize;   
+  
+  const Lang::T lang = data.settings.Language();
+  const TSize cardsCount = data.storage.GetCardsSize();
+  const double initalWeight = data.settings.InitialWeight( cardsCount );
+  const double weightAfterSuccessAnswer = data.storage.CalcNewFactor( initalWeight, data.settings, Answer::Correct ); 
+  TSize newCardsCount = 0;
+  TSize unknownCardsCount = 0;
+  TSize totalAttempts = 0;
+  TSize attemptsToInitial = 0;  
+  TSize attemptsToKnown = 0;
+    
+  for( CardsStorage::TConstSearchIterator it = data.storage.CardsBegin(); it != data.storage.CardsEnd(); ++it )
+  {
+    if( it->attempts[lang] == 0 )
+      ++newCardsCount;
+      
+    if( it->factor[lang] > weightAfterSuccessAnswer || it->attempts[lang] == 0 )
+      ++unknownCardsCount;  
+      
+    totalAttempts += it->attempts[lang];   
+    attemptsToInitial += CardsStorage::AttempsCountToReachWeight( it->factor[lang], initalWeight, data.settings.CorrectAnswerFactor() );
+    attemptsToKnown += CardsStorage::AttempsCountToReachWeight( it->factor[lang],  weightAfterSuccessAnswer, data.settings.CorrectAnswerFactor() );
+  }
 
-  QMessageBox::information( this, QApplication::applicationName(),
+  QMessageBox::information( this, "Statistics",
     "<table>" 
-    + TableDef( "Version", "12")
-    + TableDef( "Version", "12")
+    + TableDef( "Cards Count:", cardsCount )
+    + TableDef( "New Cards Count:", newCardsCount )
+    + TableDef( "Unknown Cards Count:", unknownCardsCount )
+    + TableDef( "Known Cards Count:", cardsCount - unknownCardsCount )
+    + TableDef( "Total Attempts:", totalAttempts )
+    + TableDef( "Successful Attempts To Initial Weight:", attemptsToInitial )
+    + TableDef( "Successful Attempts To Known Weight:", attemptsToKnown )
+    + TableDef( "Known Cards Weight:", weightAfterSuccessAnswer )
     + "</table>"
   ); 
 }
 
 void QMainScr::on_actionAbout_triggered()
 {
-  QMessageBox::about( this, QApplication::applicationName(),
+  QMessageBox::about( this, "About iFlashcards",
     "<h1>iFlashcards</h1>"
-    "Dmitry Shesterkin 2013"
+    "Dmitry Shesterkin 2013<br>"
     "<table>"
-    + TableDef( "Version", "1.0.0")
+    + TableDef( "Version", "1.1.0")
     + TableDef( "Email", "<a href=\"mailto:dfb@yandex.ru?subject=iFlashcards Review/Question/Problem&body=Please share your opinion about program!\">dfb@yandex.ru</a>")
     + TableDef( "Source", "<a href=\"http://github.com/RedaZamZam/iFlashcards\">http://github.com/RedaZamZam/iFlashcards</a>")
     + "</table>"

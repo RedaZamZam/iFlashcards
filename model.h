@@ -221,6 +221,8 @@ public:
   TSearchIterator GetRandomElem( Lang::T lng );
   
   void ChangeFactor( TIterator it, const Settings &st, Answer::T answer ); 
+  double CalcNewFactor( double oldFactor, const Settings &st, Answer::T answer ) const;
+  static TFlashcads::size_type CardsStorage::AttempsCountToReachWeight( double curWeight, double destWeight, double factor ); 
   
   void ChangeFactor( TSearchIterator it, const Settings &st, Answer::T answer )
   {
@@ -228,7 +230,6 @@ public:
   }
   
   double Score( const Settings &st ) const; 
-  void CorrectWeight();
   
 private:
   TFlashcads m_flashCards;

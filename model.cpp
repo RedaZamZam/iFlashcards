@@ -13,11 +13,8 @@ CardsStorage::TSearchIterator CardsStorage::GetRandomElem( Lang::T lng )
   
   return TSearchIterator(it);
 }
-
-void CardsStorage::ChangeFactor( TIterator it, const Settings &st, Answer::T answer )
+double CardsStorage::CalcNewFactor( double oldFactor, const Settings &st, Answer::T answer ) const
 {
-  const double oldFactor = it->factor[st.Language()];
- 
   // Maple:
   //   restart;
   //   Digits := 20:
@@ -29,7 +26,7 @@ void CardsStorage::ChangeFactor( TIterator it, const Settings &st, Answer::T ans
   //     x1 := x1 + (m - x1) * 0.5:
   //     x2 := x2 - 0.2 * (x2 - 1):  
   //   end do:
-  const double newFactor = ( answer == Answer::Incorrect ) ?
+  return answer == Answer::Incorrect?
     //Если был дан неправильный ответ, то нужно сделать скачок в сторону увеличения вероятности
     //в зависимости от того, насколько эта вероятность мала в данный момент.
     //Т.е. мы моделируем ситуацию, когда пользователь выучил слово затем оно долго не попадалось и
@@ -41,11 +38,32 @@ void CardsStorage::ChangeFactor( TIterator it, const Settings &st, Answer::T ans
     //к единице должно быть приемлемым для пользователя как при значении oldFactor 
     //равном 2 так и при 10000
     oldFactor - st.CorrectAnswerFactor() * ( oldFactor - 1 );
-    
+}
+
+void CardsStorage::ChangeFactor( TIterator it, const Settings &st, Answer::T answer )
+{
+  const double oldFactor = it->factor[st.Language()];
+  const double newFactor = CalcNewFactor( oldFactor, st, answer );
+   
   factorSum[st.Language()] += newFactor - oldFactor;
   it->factor[st.Language()] = newFactor;
   it->attempts[st.Language()] += 1;
 }
+
+CardsStorage::TFlashcads::size_type CardsStorage::AttempsCountToReachWeight( double curWeight, double destWeight, double factor )
+{
+  // Maple:
+  // F:=oldFactor - CorrectFactor * (oldFactor);
+  // FP := unapply( collect(F, oldFactor ), oldFactor );
+  // (FP@@6)(X);
+  // 
+  // (1 - CorrectFactor)^times*cur = dest;
+  // solve( {%}, {times} );
+  // evalf(subs( {dest=40, cur=300, CorrectFactor=0.75}, %));
+  const double times = std::log( destWeight / curWeight ) / std::log(1 - factor);
+  
+  return times > 0 ? (TFlashcads::size_type) std::ceil(times) : 0;
+}                                                          
 
 CardsStorage::CardsStorage():
   m_rng( static_cast<unsigned int>(std::time(0)) ) 
@@ -60,13 +78,4 @@ double CardsStorage::Score( const Settings &st ) const
 
   const double avg = factorSum[st.Language()] / GetCardsSize();
   return std::floor( (st.MaxWeight( GetCardsSize() ) - avg) * 100 + 0.5 ); 
-}
-
-void CardsStorage::CorrectWeight()
-{
-  for( TIterator it = m_flashCards.begin(); it != m_flashCards.end(); ++it )
-  {
-    if( it->attempts[Lang::Native] == 0 && it->factor[Lang::Native] != it->factor[Lang::Foreign] )
-      it->attempts[Lang::Native] = 1;  
-  }
 }
