@@ -88,7 +88,7 @@ class Settings
   
 public:  
   Settings(): 
-    language(Lang::Foreign), maxWeightFactor(1), 
+    language(Lang::Native), maxWeightFactor(1), 
     correctAnswerFactor( 0.5 ), incorrectAnswerFactor( 0.5 )  
   {}
   
