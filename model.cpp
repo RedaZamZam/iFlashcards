@@ -50,8 +50,9 @@ void CardsStorage::ChangeFactor( TIterator it, const Settings &st, Answer::T ans
   it->attempts[st.Language()] += 1;
 }
 
-CardsStorage::TSize CardsStorage::AttempsCountToReachWeight( double curWeight, double destWeight, double factor )
+CardsStorage::TSize CardsStorage::AttempsCountToReachWeight( double curWeight, double destWeight, const Settings &st ) const
 {
+#if 0  
   // Maple:
   // F:=oldFactor - CorrectFactor * (oldFactor);
   // FP := unapply( collect(F, oldFactor ), oldFactor );
@@ -60,9 +61,23 @@ CardsStorage::TSize CardsStorage::AttempsCountToReachWeight( double curWeight, d
   // (1 - CorrectFactor)^times*cur = dest;
   // solve( {%}, {times} );
   // evalf(subs( {dest=40, cur=300, CorrectFactor=0.75}, %));
-  const double times = std::log( destWeight / curWeight ) / std::log(1 - factor);
+  const double times = std::log( destWeight / curWeight ) / std::log(1 - st.CorrectAnswerFactor());
   
   return times > 0 ? (TSize) std::ceil(times) : 0;
+
+#else //Так намного проще и точнее
+  
+  TSize result = 0;
+  
+  while( curWeight > destWeight )
+  {
+    curWeight = CalcNewFactor( curWeight, st, Answer::Correct );
+    ++result;
+  }
+  
+  return result; 
+  
+#endif
 }                                                          
 
 CardsStorage::CardsStorage():

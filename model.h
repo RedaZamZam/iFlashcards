@@ -223,7 +223,7 @@ public:
   
   void ChangeFactor( TIterator it, const Settings &st, Answer::T answer ); 
   double CalcNewFactor( double oldFactor, const Settings &st, Answer::T answer ) const;
-  static TSize CardsStorage::AttempsCountToReachWeight( double curWeight, double destWeight, double factor ); 
+  TSize CardsStorage::AttempsCountToReachWeight( double curWeight, double destWeight, const Settings &st ) const; 
   
   void ChangeFactor( TSearchIterator it, const Settings &st, Answer::T answer )
   {

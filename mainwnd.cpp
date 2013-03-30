@@ -220,8 +220,8 @@ void QMainScr::on_actionStatistics_triggered()
       ++unknownCardsCount;  
       
     totalAttempts += it->attempts[lang];   
-    attemptsToInitial += CardsStorage::AttempsCountToReachWeight( it->factor[lang], initalWeight, m_data.settings.CorrectAnswerFactor() );
-    attemptsToKnown += CardsStorage::AttempsCountToReachWeight( it->factor[lang],  weightAfterSuccessAnswer, m_data.settings.CorrectAnswerFactor() );
+    attemptsToInitial += m_data.storage.AttempsCountToReachWeight( it->factor[lang], initalWeight, m_data.settings );
+    attemptsToKnown += m_data.storage.AttempsCountToReachWeight( it->factor[lang],  weightAfterSuccessAnswer, m_data.settings );
   }
 
   QMessageBox::information( this, "Statistics",
@@ -244,9 +244,12 @@ void QMainScr::on_actionAbout_triggered()
     "<h1>iFlashcards</h1>"
     "Dmitry Shesterkin 2013<br>"
     "<table>"
-    + TableDef( "Version", "1.2.0")
-    + TableDef( "Email", "<a href=\"mailto:dfb@yandex.ru?subject=iFlashcards Review/Question/Problem&body=Please share your opinion about program!\">dfb@yandex.ru</a>")
+
+    + TableDef( "Version", "1.2.1")
+    + TableDef( "Project", "<a href=\"http://code.google.com/p/smart-flashcards\">http://code.google.com/p/smart-flashcards</a>")
     + TableDef( "Source", "<a href=\"http://github.com/RedaZamZam/iFlashcards\">http://github.com/RedaZamZam/iFlashcards</a>")
+    + TableDef( "Email", "<a href=\"mailto:dfb@yandex.ru?subject=iFlashcards Review/Question/Problem&body=Please share your opinion about program!\">dfb@yandex.ru</a>")
+
     + "</table>"
   );
 }
