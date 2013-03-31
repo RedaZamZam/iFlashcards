@@ -7,7 +7,7 @@ Yet another application for automatization Flashcard method of learning foreign 
    * No need to switch between memorization and repetition
    * You can add new cards whatever you want and do not think about groups, lessons, topics and so on
  * No learning schedule. You decide when you want to learn and how much time to spend
- * App os optimized for phrases and sentences instead of singe words. You learn language in context
+ * App is optimized for phrases and sentences instead of singe words. You learn language in context
 
 More info and last binaries: https://code.google.com/p/smart-flashcards/
 
