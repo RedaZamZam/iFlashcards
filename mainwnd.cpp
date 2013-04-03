@@ -13,6 +13,8 @@ QMainScr::QMainScr(QWidget *parent, Qt::WFlags flags)
   ui.setupUi(this);
   QObject::connect( QApplication::instance() , SIGNAL(aboutToQuit()), this, SLOT(SaveSettings()) );
   
+  QApplication::instance()->installEventFilter( this );
+  
   if( QFile::exists(szStorageFileName) )
     FromXml( szStorageFileName, m_data );
     
@@ -37,7 +39,7 @@ void QMainScr::Clear()
 
 QMainScr::~QMainScr()
 {
-
+  QApplication::instance()->removeEventFilter( this );
 }
 
 void QMainScr::on_actionShow_Flashcards_triggered()
@@ -245,11 +247,42 @@ void QMainScr::on_actionAbout_triggered()
     "Dmitry Shesterkin 2013<br>"
     "<table>"
 
-    + TableDef( "Version", "1.2.2")
+    + TableDef( "Version", "1.2.3")
     + TableDef( "Project", "<a href=\"http://code.google.com/p/smart-flashcards\">http://code.google.com/p/smart-flashcards</a>")
     + TableDef( "Source", "<a href=\"http://github.com/RedaZamZam/iFlashcards\">http://github.com/RedaZamZam/iFlashcards</a>")
     + TableDef( "Email", "<a href=\"mailto:dfb@yandex.ru?subject=iFlashcards Review/Question/Problem&body=Please share your opinion about program!\">dfb@yandex.ru</a>")
 
     + "</table>"
   );
+}
+
+bool QMainScr::eventFilter( QObject *ob, QEvent *e )
+{
+  (void)ob;
+
+  if( (e->type() != QEvent::KeyPress && e->type() != QEvent::KeyRelease) || !isActiveWindow() )
+    return false; 
+       
+  QKeyEvent * const keyEvent = static_cast<QKeyEvent *>(e);
+     
+  if( keyEvent->key() == Qt::Key_Space && !keyEvent->isAutoRepeat() ) 
+  {
+    if( e->type() == QEvent::KeyPress )                                                                                     
+    {
+      if( !ui.btnNext->isEnabled() )
+        ui.plainTextNative->setPlainText( "" );  
+      else
+        on_btnNext_clicked();
+    }
+    else if( e->type() == QEvent::KeyRelease )
+    {                                                                                                              
+      if( !ui.btnNext->isEnabled() )
+        on_btnNext_clicked(); 
+    } 
+  
+    e->accept();
+    return true;
+  }
+
+  return false;
 }

@@ -41,6 +41,7 @@ private:
   void Clear();
   void ReceiveAnswer( Answer::T ans );
   void ShowFullCard();
+  bool eventFilter( QObject *ob, QEvent *e );
 
 private:
   Ui::MainWindow ui;

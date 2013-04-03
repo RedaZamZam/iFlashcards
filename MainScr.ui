@@ -223,9 +223,6 @@
         <property name="text">
          <string>Next card (Space)</string>
         </property>
-        <property name="shortcut">
-         <string>Space</string>
-        </property>
        </widget>
       </item>
       <item>
