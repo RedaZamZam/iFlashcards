@@ -192,10 +192,10 @@
          <string/>
         </property>
         <property name="text">
-         <string>Success (S)</string>
+         <string>Success (Q)</string>
         </property>
         <property name="shortcut">
-         <string>S</string>
+         <string>Q</string>
         </property>
        </widget>
       </item>
@@ -250,10 +250,10 @@
          <string/>
         </property>
         <property name="text">
-         <string>Failure (F)</string>
+         <string>Failure (P)</string>
         </property>
         <property name="shortcut">
-         <string>F</string>
+         <string>P</string>
         </property>
        </widget>
       </item>
