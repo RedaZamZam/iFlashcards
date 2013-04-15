@@ -248,7 +248,7 @@ void QMainScr::on_actionAbout_triggered()
     "<table>"
 
     + TableDef( "Version", "1.2.4")
-    + TableDef( "Project", "<a href=\"http://code.google.com/p/smart-flashcards\">http://code.google.com/p/smart-flashcards</a>")
+    + TableDef( "Project", "<a href=\"http://smart-flashcards.googlecode.com\">http://smart-flashcards.googlecode.com</a>")
     + TableDef( "Source", "<a href=\"http://github.com/RedaZamZam/iFlashcards\">http://github.com/RedaZamZam/iFlashcards</a>")
     + TableDef( "Email", "<a href=\"mailto:dfb@yandex.ru?subject=iFlashcards Review/Question/Problem&body=Please share your opinion about program!\">dfb@yandex.ru</a>")
 
