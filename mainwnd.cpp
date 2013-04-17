@@ -166,6 +166,16 @@ inline QString TableDef( const QString &def, double val )
   return TableDef( def, QString::number(val) );
 }
 
+inline QString TableGap()
+{
+  return TableDef( "", "" );
+}
+
+inline QString ToPercent( double val )
+{
+  return QString::number(val * 100, 'f', 2) + '%';
+}
+
 void QMainScr::on_actionExportToCSV_triggered()
 {
   const QString fileName = QFileDialog::getSaveFileName(this, QString(),
@@ -201,22 +211,38 @@ void QMainScr::on_actionExportToCSV_triggered()
 
 void QMainScr::on_actionStatistics_triggered()
 {
+  if(  m_data.storage.IsCardsEmpty() )
+  {
+    QMessageBox::information( this, "Statistics", "There are not enough cards number to gather statistics." );
+    return; 
+  } 
+
   typedef CardsStorage::TSize TSize;   
+  typedef std::vector<double> TWeights;
   
   const Lang::T lang = m_data.settings.Language();
   const TSize cardsCount = m_data.storage.GetCardsSize();
   const double initalWeight = m_data.settings.InitialWeight( cardsCount );
   const double weightAfterSuccessAnswer = m_data.storage.CalcNewFactor( initalWeight, m_data.settings, Answer::Correct ); 
+  
   TSize newCardsCount = 0;
   TSize unknownCardsCount = 0;
   TSize totalAttempts = 0;
   TSize attemptsToInitial = 0;  
   TSize attemptsToKnown = 0;
-    
+  double newCardsWeightSum = 0;
+  double weightSum = 0;
+  TWeights weights;
+   
+  weights.reserve( cardsCount );
+   
   for( CardsStorage::TConstSearchIterator it = m_data.storage.CardsBegin(); it != m_data.storage.CardsEnd(); ++it )
   {
     if( it->attempts[lang] == 0 )
+    {
       ++newCardsCount;
+      newCardsWeightSum += it->factor[lang];
+    }
       
     if( it->factor[lang] > weightAfterSuccessAnswer || it->attempts[lang] == 0 )
       ++unknownCardsCount;  
@@ -224,20 +250,58 @@ void QMainScr::on_actionStatistics_triggered()
     totalAttempts += it->attempts[lang];   
     attemptsToInitial += m_data.storage.AttempsCountToReachWeight( it->factor[lang], initalWeight, m_data.settings );
     attemptsToKnown += m_data.storage.AttempsCountToReachWeight( it->factor[lang],  weightAfterSuccessAnswer, m_data.settings );
+    
+    weights.push_back( it->factor[lang] );
+    weightSum += it->factor[lang];
   }
 
-  QMessageBox::information( this, "Statistics",
-    "<table>" 
-    + TableDef( "Cards Count:", cardsCount )
+  std::sort( weights.begin(), weights.end(), std::greater<TWeights::value_type>() );
+
+  //Вычисляем количество карточек вероятность выбора одной из которых равна каждому значению rgPecentileBorders
+  static const double rgPecentileBorders[] = { 0.1, 0.25, 0.5, 0.75, 0.9, 0.99 };
+  TSize rgPecentileValues[ ARRAY_SIZE(rgPecentileBorders) ] = {};
+  double curWeightSum = 0;
+  TSize curPecentile = 0;
+  
+  for( TWeights::const_iterator it = weights.begin(); it != weights.end() && curPecentile < ARRAY_SIZE(rgPecentileValues); ++it )
+  {
+    curWeightSum += *it;
+    
+    //Использование while вместо if здесь позволит учитывать пересечение границ, но не хочется усложнять
+    if( curWeightSum / weightSum >= rgPecentileBorders[curPecentile] )
+    {
+      rgPecentileValues[curPecentile] = it - weights.begin() + 1;
+      ++curPecentile;
+    }  
+  } 
+
+  QString resultText;
+  
+  resultText +=
+      TableDef( "Cards Count:", cardsCount )
+    + TableDef( "Total Attempts:", totalAttempts )
+    + TableGap()
     + TableDef( "New Cards Count:", newCardsCount )
     + TableDef( "Unknown Cards Count:", unknownCardsCount )
     + TableDef( "Known Cards Count:", cardsCount - unknownCardsCount )
-    + TableDef( "Total Attempts:", totalAttempts )
+    + TableGap()
     + TableDef( "Successful Attempts To Initial Weight:", attemptsToInitial )
     + TableDef( "Successful Attempts To Known Weight:", attemptsToKnown )
-    + TableDef( "Known Cards Weight:", weightAfterSuccessAnswer )
-    + "</table>"
-  ); 
+    + TableGap()
+    + TableDef( "Initial Card Weight:", initalWeight )
+    + TableDef( "Known Card Weight:", weightAfterSuccessAnswer )
+    + TableDef( "Average Card Weight:", weightSum / cardsCount )
+    + TableDef( "Median Card Weight:", weights[ weights.size() / 2 ] )
+    + TableGap()
+    + TableDef( "Next added card selection probability: ", ToPercent( initalWeight / weightSum) )
+    + TableDef( "One of new cards selection probability: ", ToPercent( newCardsWeightSum / weightSum) )
+    + TableGap()
+  ;
+  
+  for( int i = 0; i < ARRAY_SIZE(rgPecentileValues); ++i )
+    resultText += TableDef( QString("Cards count which are selected with probability %1%:").arg(rgPecentileBorders[i] * 100), rgPecentileValues[i] );
+
+  QMessageBox::information( this, "Statistics", "<table>" + resultText + "</table>"); 
 }
 
 void QMainScr::on_actionAbout_triggered()
@@ -247,7 +311,7 @@ void QMainScr::on_actionAbout_triggered()
     "Dmitry Shesterkin 2013<br>"
     "<table>"
 
-    + TableDef( "Version", "1.2.4")
+    + TableDef( "Version", "1.2.5")
     + TableDef( "Project", "<a href=\"http://smart-flashcards.googlecode.com\">http://smart-flashcards.googlecode.com</a>")
     + TableDef( "Source", "<a href=\"http://github.com/RedaZamZam/iFlashcards\">http://github.com/RedaZamZam/iFlashcards</a>")
     + TableDef( "Email", "<a href=\"mailto:dfb@yandex.ru?subject=iFlashcards Review/Question/Problem&body=Please share your opinion about program!\">dfb@yandex.ru</a>")
