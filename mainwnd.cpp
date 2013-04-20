@@ -231,6 +231,7 @@ void QMainScr::on_actionStatistics_triggered()
   TSize attemptsToInitial = 0;  
   TSize attemptsToKnown = 0;
   double newCardsWeightSum = 0;
+  double unknownCardsWeightSum = 0;
   double weightSum = 0;
   TWeights weights;
    
@@ -245,7 +246,10 @@ void QMainScr::on_actionStatistics_triggered()
     }
       
     if( it->factor[lang] > weightAfterSuccessAnswer || it->attempts[lang] == 0 )
-      ++unknownCardsCount;  
+    {
+      ++unknownCardsCount;
+      unknownCardsWeightSum += it->factor[lang];
+    }  
       
     totalAttempts += it->attempts[lang];   
     attemptsToInitial += m_data.storage.AttempsCountToReachWeight( it->factor[lang], initalWeight, m_data.settings );
@@ -295,6 +299,7 @@ void QMainScr::on_actionStatistics_triggered()
     + TableGap()
     + TableDef( "Next added card selection probability: ", ToPercent( initalWeight / weightSum) )
     + TableDef( "One of new cards selection probability: ", ToPercent( newCardsWeightSum / weightSum) )
+    + TableDef( "One of unknown cards selection probability: ", ToPercent( unknownCardsWeightSum / weightSum) )
     + TableGap()
   ;
   
@@ -311,7 +316,7 @@ void QMainScr::on_actionAbout_triggered()
     "Dmitry Shesterkin 2013<br>"
     "<table>"
 
-    + TableDef( "Version", "1.2.5")
+    + TableDef( "Version", "1.2.6")
     + TableDef( "Project", "<a href=\"http://smart-flashcards.googlecode.com\">http://smart-flashcards.googlecode.com</a>")
     + TableDef( "Source", "<a href=\"http://github.com/RedaZamZam/iFlashcards\">http://github.com/RedaZamZam/iFlashcards</a>")
     + TableDef( "Email", "<a href=\"mailto:dfb@yandex.ru?subject=iFlashcards Review/Question/Problem&body=Please share your opinion about program!\">dfb@yandex.ru</a>")
